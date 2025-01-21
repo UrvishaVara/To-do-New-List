@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.css">
+    <script src="../bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do list</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4">Todo App</h1>
+        <div class="input-group d-flex gap-2 mb-3">
+            <input type="text" class="form-control" id="todoinput" placeholder="Add your new todo">
+            <button class="btn btn-add">+</button>
+        </div>
+        <ul class="list-group" id="todolist"></ul>
+        <p>you have <span id="pendingCount" class="text-black"><b>0</b></span> pending task</p>
+        <p>you have <span id="completedCount" class="text-success"><b>0</b></span> completed task</p>
+        <button type="submit" class="btn btn-clear">Clear All</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
