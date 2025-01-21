@@ -15,9 +15,13 @@ body {
     max-width: 400px;
   }
   .btn-add {
+    background-color: rgb(123, 66, 237);
     margin-left: 10px;
+    color: white;
   }
   .btn-clear {
     margin-top: 20px;
+    background-color: rgb(123, 66, 237);
+    color: white;
   }
   

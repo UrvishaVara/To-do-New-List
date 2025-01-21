@@ -11,16 +11,19 @@
 </head>
 
 <body>
-    <div class="container text-center">
+
+    <div class="container text-center" id="form">
         <h1 class="mb-4">Todo App</h1>
         <div class="input-group d-flex gap-2 mb-3">
             <input type="text" class="form-control" id="todoinput" placeholder="Add your new todo">
-            <button class="btn btn-add">+</button>
+            <button class="btn btn-add" onclick="addData()">+</button>
         </div>
-        <ul class="list-group" id="todolist"></ul>
+        <div id="container">
+            <ul class="list-group" id="todolist"></ul>
+        </div>
         <p>you have <span id="pendingCount" class="text-black"><b>0</b></span> pending task</p>
         <p>you have <span id="completedCount" class="text-success"><b>0</b></span> completed task</p>
-        <button type="submit" class="btn btn-clear">Clear All</button>
+        <button type="submit" class="btn btn-clear" onclick="clearData()">Clear All</button>
     </div>
     <script src="script.js"></script>
 </body>
