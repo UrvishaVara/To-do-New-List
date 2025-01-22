@@ -1,6 +1,5 @@
 body {
   background: linear-gradient(to bottom, #a8e6ff, #faefd7);
-
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -30,10 +29,10 @@ body {
 }
 
 .styleinput {
-  background: linear-gradient(to bottom, rgb(223, 155, 100), rgb(125, 81, 207));
+  background: linear-gradient(to bottom, rgb(235, 125, 36), rgb(125, 81, 207));
   padding: 15px;
   color: white;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: pointer;  
   margin-bottom: 15px;
 }

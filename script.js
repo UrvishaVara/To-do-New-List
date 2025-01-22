@@ -11,13 +11,12 @@ function renderData() {
             <div>
             ${ele.input}
             </div>
-            <div class="btnHover">
+            <div>
             <button class="btnHover" onclick="taskDone()">TaskDone</button>
             <button class="btnHover" onclick="editTask(${index})">Edit</button>
-            <button class="btnHover" onclick="removeTask()">Remove</button>
+            <button class="btnHover" onclick="removeTask(${index})">Remove</button>
             </div>
-            </div>
-                
+            </div>     
            `
         )
     })
@@ -25,16 +24,19 @@ function renderData() {
     const pendingCount = document.getElementById("pendingCount");
     pendingCount.innerHTML = formInputTask.length;
     console.log(pendingCount);
-
+    
 }
 renderData();
 
-
 function addData() {
     const taskInput = document.getElementById("todoinput");
+    if (!taskInput.value) {
+        return (alert("please give some input"));
+    }
     formInputTask.push({
         input: taskInput.value
     });
+
     renderData();
     clearData();
 
@@ -45,11 +47,24 @@ function clearData() {
     clearInput.focus();
 }
 
-function editTask(index){
+function editTask(index) {
     const addInput = document.getElementById("todoinput");
-    const data = formInputTask.find((ele,ind) => ind === index);
+    const data = formInputTask.find((ele, ind) => ind === index);
     addInput.value = data.input;
 }
+
+function removeTask(index) {
+    formInputTask.splice(1, index);
+    renderData();
+}
+
+
+
+ 
+ 
+
+
+
 
 
 
