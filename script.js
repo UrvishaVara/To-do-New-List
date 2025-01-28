@@ -1,6 +1,8 @@
+let taskIndex = null;
 const formInputTask = [];
 
-console.log(formInputTask)
+console.log(formInputTask);
+
 
 function renderData() {
     const container = document.getElementById("container")
@@ -11,8 +13,8 @@ function renderData() {
             <div>
             ${ele.input}
             </div>
-            <div>
-            <button class="btnHover" onclick="taskDone()">TaskDone</button>
+            <div class="showButton">
+            <button class="btnHover" onclick="taskDone(${index})">TaskDone</button>
             <button class="btnHover" onclick="editTask(${index})">Edit</button>
             <button class="btnHover" onclick="removeTask(${index})">Remove</button>
             </div>
@@ -20,17 +22,25 @@ function renderData() {
            `
         )
     })
-    container.innerHTML = formData.join(' ');
+
+    if (formInputTask.length === 0) {
+        container.innerHTML = `<p>No Data Available</p>`
+    }
+    else {
+        container.innerHTML = formData.join(' ');
+    }
+
     const pendingCount = document.getElementById("pendingCount");
     pendingCount.innerHTML = formInputTask.length;
     console.log(pendingCount);
-    
+
+
 }
 renderData();
 
 function addData() {
     const taskInput = document.getElementById("todoinput");
-    if (!taskInput.value) {
+    if (!taskInput.value.trim()) {
         return (alert("please give some input"));
     }
     formInputTask.push({
@@ -43,25 +53,37 @@ function addData() {
 }
 function clearData() {
     const clearInput = document.getElementById("todoinput");
-    clearInput.value = " ";
+    clearInput.value = "";
     clearInput.focus();
 }
 
 function editTask(index) {
     const addInput = document.getElementById("todoinput");
+    taskIndex = index;
     const data = formInputTask.find((ele, ind) => ind === index);
     addInput.value = data.input;
 }
 
 function removeTask(index) {
-    formInputTask.splice(1, index);
+    formInputTask.splice(index, 1);
     renderData();
 }
+function updateData() {
+    const input = document.getElementById("todoinput");
+    formInputTask.splice(taskIndex, 1, { input: input.value });
+    console.log(formInputTask)
+    console.log(input.value);
+    renderData();
+    clearData();
+}
+function clearAllData() {
+    formInputTask.length = 0;
+    renderData();
+}
+function taskDone(index) {
 
+}
 
-
- 
- 
 
 
 
